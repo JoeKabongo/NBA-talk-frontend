@@ -1,0 +1,270 @@
+.page-title{
+  width: 40%;
+  display: inline-block;
+}
+
+.space{
+  margin-top: 65px;;
+}
+
+
+#user-profile{
+  /* margin-top: 65px; */
+  display: inline-block;
+  margin-left:25%;
+  width: 40%;
+  border-right: 1px solid #ebebeb;
+  position: relative;
+  z-index: 0;
+}
+
+@media screen and (max-width: 1000px){
+  #user-profile{
+    margin-left: 0px;
+    width: 100%;
+    border: none;
+  }
+
+  .page-title{
+    display: none;
+  }
+}
+
+.container{
+  padding-left: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ebebeb;
+
+}
+
+
+#user-profile .image{
+  width: 80px;
+}
+
+#user-profile #nav{
+  text-align: center;
+  margin-top: 20px;
+}
+
+#nav a{
+  margin-right: 10px;
+}
+
+#user-profile button{
+  float: right;
+}
+
+
+
+#user-profile #date-joined, #number-friends{
+  display: inline-block;
+  margin-right: 30px;
+}
+
+
+button{
+  width: 100px;
+  margin-right: 3px;
+}
+
+#profile-image {
+  width: 75px;
+  height: 75px;
+}
+
+#profile-image img{
+  width:100%;
+  height: 100%;
+  /* border-radius: 50%; */
+}
+
+
+/* widown that shows the user and help them update their info*/
+#editWindow{
+  position: fixed;
+  z-index: 10000 !important;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-left: 25%;
+  width: 40%;
+  height: 500px;
+  background: #ffffff;
+  text-align: center;
+  display: none;
+  padding-bottom: 5px;
+  overflow: scroll;
+  margin-bottom: 50px;
+
+}
+
+
+
+#editWindow input{
+  display: inline-block;
+  width: 500px;
+  height: 35px;
+  border: 1px solid #ebebeb;
+  margin-bottom: 30px;
+  outline: none;
+
+}
+
+#editWindow .title{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  position: relative;
+  border-bottom: 1px solid #ebebeb;;
+}
+
+#editWindow .title > .close-window-button{
+  position: absolute;
+  right: 2px;
+  top: 5px;
+  border: none;
+  background: none;
+  color: #000000;
+}
+
+#editWindow .title > .close-window-button:hover{
+  color: #ff0000;
+}
+
+
+#editWindow img {
+  width: 100px;
+}
+#ediWindow #saveButton{
+  margin-left: 0px;
+
+}
+textarea{
+  width: 500px;
+  height: 100px;
+  border: 1px solid #ebebeb;
+}
+
+li{
+  display: list-item;
+}
+
+.alert-box{
+  margin: 0 auto;
+  top: 20px;
+  left: 25%;
+}
+
+
+
+/* post window*/
+#edit-post-window{
+  position: fixed;
+  z-index: 1010;
+  width: 40%;
+  background: #ffffff;
+  overflow: scroll;
+  text-align: center;
+  display: none;
+  padding-bottom: 5px;
+  left: 25%;
+  top: 30px;
+  border-radius: 10px;
+
+}
+
+#edit-post-window .title{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  position: relative;
+  border-bottom: 1px solid #ebebeb;;
+}
+
+#edit-post-window textarea{
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: 50px;
+  border: none;
+  border-bottom: 1px solid #ebebeb;
+  height: 200px;
+}
+
+.close-window-button{
+  margin-right: 30px;
+}
+
+textarea:focus{
+  outline: none;
+}
+
+#edit-post-window button{
+  margin: 10px;
+}
+
+
+#more-post-option{
+  position: fixed;
+  z-index: 1010;
+  width: 500px;
+  background: #ffffff;
+  overflow: scroll;
+  text-align: center;
+  display: none;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 45%;
+  margin: 0 auto;
+
+}
+
+@media(max-width: 1000px){
+  #more-post-option{
+    width: 90%;
+    margin-left: 0px;
+  }
+}
+
+
+
+#more-post-option p{
+  margin-top: 10px;
+  padding: 20px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+#more-post-option p:hover{
+  color:red;
+}
+
+
+
+
+/* right side were articl are displayed */
+
+#right-section{
+  position: fixed;
+  display: inline-block;
+  margin-left: 65%;
+  width: 35%;
+  padding: 10px;
+  height: 100vh;
+  border-left: 1px solid #ebebeb;
+}
+
+@media screen and (max-width: 1000px){
+  #right-section{
+    display: none;
+  }
+}
+
+a{
+  text-decoration: none;
+  color: #000000;
+}
+a:hover{
+  color: #ff0000;
+}

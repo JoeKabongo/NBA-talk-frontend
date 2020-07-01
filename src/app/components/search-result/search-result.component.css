@@ -1,0 +1,182 @@
+#search-result{
+  display: inline-block;
+  margin-left: 25%;
+  width: 40%;
+}
+
+
+
+.page-title{
+  position: fixed;
+  width: 40%;
+  height: 100px;
+}
+.space{
+  margin-top: 100px;
+}
+
+.page-title #search-form{
+  text-align: center;
+  margin: 20px;
+
+}
+#search-form input{
+  margin: 0 auto;
+  width: 70%;
+  height: 40px;
+}
+#search-form button{
+  margin-left: 5px;
+  width: 75px;
+}
+#search-option{
+  margin: 0 auto;
+  text-align: center;
+}
+
+#search-option a{
+  display: inline-block;
+  width: 33%;
+  height: 20px;
+  text-decoration: none;
+  color: #000000;
+}
+
+#search-option a:hover{
+  color: #ff0000;
+}
+#people-result{
+  width: 100%;
+}
+
+#people-result .user{
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #ebebeb;
+}
+#people-result .user:hover{
+  background:#ebebeb;
+}
+
+#people-result .user .container{
+  padding: 10px;
+}
+
+#people-result .profile-image, .username{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.username b{
+  margin-left: 5px;
+}
+#people-result img{
+    width: 70px;
+}
+
+@media screen and (max-width : 1000px){
+  #search-result{
+    width: 100vw;
+    margin: 0px;
+  }
+
+  #right-section{
+    display: none;
+  }
+
+  .page-title{
+    position: static;
+    width: 100%;
+    margin-top: 100px;
+  }
+
+  .space{
+    display: none;
+  }
+}
+
+
+
+
+
+#right-section{
+  position: fixed;
+  display: inline-block;
+  left: 65%;
+  width: 35%;
+  padding: 10px;
+  border-left: 1px solid #ebebeb;
+  height: 100vh;
+}
+
+.recent-posts, .users-to-follow{
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+  width: 80%;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.item{
+  display: table;
+  margin: 2%;
+  vertical-align: center;
+  width: 100%;
+  overflow: scroll;
+}
+ .row{
+  display: table-row;
+}
+
+.item .image{
+ display: table-cell;
+ vertical-align: middle;
+ width: 15%;
+ margin-right: 5px;
+
+}
+
+.item .text{
+display: block;
+/* vertical-align: middle; */
+width: 50%;
+margin-left:10px;
+font-weight: bold;
+padding: 10px;
+/* text-overflow: unset; */
+}
+
+button{
+  border: 1px solid #ff0000;
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  color: #ff0000;
+  font-weight: bold;
+  font-size:15px;
+ }
+
+ button:hover{
+  background:  #ff0000;
+  color:white;
+ }
+
+
+ img{
+   width:100%;
+ }
+
+ span{
+  color: gray;
+  font-size: 12px;
+ }
+
+ #right-section a{
+   text-decoration: none;
+   color: #000000;
+ }
+
+ @media screen and (max-width : 1000px){
+  #right-section{
+    display: none;
+  }
+}

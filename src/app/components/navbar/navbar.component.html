@@ -1,0 +1,73 @@
+
+<section id="navbar-container">
+  <div class="big-screen-navbar">
+
+        <div class="inner_div">
+            <img src="../../../assets/images/logo.png" alt="My image" class="logo">
+          <ul>
+            <li> <a routerLink="/" > <i class="fas fa-home"></i> <span> Home</span> </a> </li>
+            <li> <a routerLink="/blog"> <i class="fas fa-newspaper"></i>  <span> Blog </span></a> </li>
+            <li> <a routerLink="/jointeam" > <i class="far fa-handshake"></i> <span> Join The Team</span> </a> </li>
+
+            <li *ngIf="isLoggedIn()"> <a routerLink="/notifications"><i class="far fa-bell"></i> <span> Notification </span></a> </li>
+            <li> <a routerLink="/stats"> <i class="fas fa-chart-line"></i> <span> Stats </span></a> </li>
+
+            <li *ngIf="isLoggedIn()"> <a routerLink="/messages"> <i class="fas fa-envelope"> </i> <span> Messages </span> </a> </li>
+
+            <li *ngIf="isLoggedIn()"> <a routerLink="/blog/dashboard" > <i class="fas fa-file-alt"></i> <span>Dashboard</span></a></li>
+            <li *ngIf="userWriter()"class=""> <i class="fas fa-feather"></i>  <span> <a routerLink="/blog/new"> New Article </a> </span> </li>
+
+            <li *ngIf="isLoggedIn()"> <a routerLink="/profile/{{username}}" > <i class="fas fa-user"></i> <span>Profile</span></a></li>
+
+
+            <li *ngIf="isLoggedIn()"> <a routerLink="" (click)="logout()" routerLinkActive="router-link-active" > <i class="fas fa-sign-out-alt"></i> <span> Logout</span></a> </li>
+            <li *ngIf="isLoggedIn()"class=""> <i class="fas fa-feather"></i>  <span> <button (click)="showPostWindow()"> Post </button> </span> </li>
+
+
+
+            <li *ngIf="!isLoggedIn()"> <a routerLink="/login"> <i class="fas fa-sign-in-alt"></i> <span> Login </span></a> </li>
+            <li *ngIf="!isLoggedIn()"> <a routerLink="/signup"> <i class="fas fa-user-plus"></i>  <span> Signup </span></a> </li>
+
+          </ul>
+        </div>
+
+  </div>
+
+
+  <div class="small-screen-navbar">
+
+      <img src="../../../assets/images/logo.png" alt="My image" class="logo">
+      <div style="position: absolute; left: 0px; top: 30%; display: inline-block; text-align: left;">
+          <i class="fas fa-bars clickable" id="drop-down-button-nav" style= "margin-left: 10px;" (click)="showOrHideDropDown()"></i> <br>
+          <div id="drop-down-navbar">
+              <ul >
+                <li> <a routerLink="/" > <i class="fas fa-home"></i> <span> Home</span> </a> </li>
+                <li> <a routerLink="/blog"> <i class="fas fa-newspaper"></i>  <span> Blog </span></a> </li>
+                <li *ngIf="isLoggedIn()"> <a routerLink="/notifications"><i class="far fa-bell"></i> <span> Notification </span></a> </li>
+                <li> <a routerLink="/blog"> <i class="far fa-grin-squint-tears"></i> <span> Meme zone </span></a> </li>
+                <li> <a routerLink="/stats"> <i class="fas fa-chart-line"></i> <span> Stats </span></a> </li>
+
+                <li *ngIf="isLoggedIn()"> <a routerLink="/messages"> <i class="fas fa-envelope"> </i> <span> Messages </span> </a> </li>
+                <li *ngIf="isLoggedIn()"> <a routerLink="/profile/{{username}}" > <i class="far fa-user-circle"></i> <span>Profile</span></a></li>
+
+                <li *ngIf="isLoggedIn()"> <a routerLink="" (click)="logout()" routerLinkActive="router-link-active" > <i class="fas fa-sign-out-alt"></i> <span> Logout</span></a> </li>
+                <li *ngIf="isLoggedIn() && showPostButton"class=""> <button (click)="showPostWindow()"> Write a post </button> <a href=""> <i class="fas fa-edit edit-sign"></i> </a></li>
+
+                <li *ngIf="!isLoggedIn()"> <a routerLink="/login"> <i class="fas fa-sign-in-alt"></i> <span> Login </span></a> </li>
+                <li *ngIf="!isLoggedIn()"> <a routerLink="/signup"> <i class="fas fa-user-plus"></i>  <span> Signup </span></a> </li>
+
+                <li> <a routerLink="/search"> <i class="fas fa-search"></i> </a> </li>
+              </ul>
+            </div>
+      </div>
+
+
+
+
+  </div>
+
+</section>
+
+
+
+

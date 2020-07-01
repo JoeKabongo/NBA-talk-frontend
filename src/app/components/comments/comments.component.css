@@ -1,0 +1,272 @@
+/* Style for the reply to comment text field*/
+#add-comment-field{
+  border: 2px solid #ebebeb;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+  height: 100px;
+ }
+
+.comment{
+  margin-bottom: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+  position: relative;
+  border-bottom: 1px solid #ededed;
+  width: 100%;
+}
+
+.comment a{
+  text-decoration: none;
+  color: #ff0000;
+}
+
+.comment a:hover{
+  color: #000000;
+}
+
+
+
+
+.comment .user-image{
+ display: inline-block;
+ vertical-align: top;
+ width: 40px;
+ height: 40px;
+ margin-right: 5px;
+
+}
+
+.comment .user-image img{
+  width: 100%;
+  height: 100%;
+}
+
+.comment .content{
+  display: inline-block;
+  width: 80%;
+
+}
+
+
+.comment .read-only{
+  width: 100%;
+  background: #ebebeb;
+  border-radius: 0px 20px 20px 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  word-wrap: break-word;
+
+}
+
+@media screen and (max-width : 1000px){
+  .comment .read-only{
+    width: 95%;
+    margin-right: 5px;
+
+  }
+
+}
+ .edit-comment-div{
+  display: none;
+  margin-top: 10px;
+}
+
+.edit-comment-field{
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #ebebeb;
+  margin-bottom: 5px;
+  display: block;
+  background: #ffffff;
+  outline: none;
+  word-break: break-all;
+
+}
+
+.edit-comment-div button{
+  width: 60px;
+  font-size: small;
+  margin-right: 10px;
+}
+
+
+.comment .header{
+  margin-bottom: 10px;
+}
+
+.comment-time{
+  font-size: small;
+  color: gray;
+  display: block;
+}
+
+#comment-length{
+  display: none;
+}
+
+.comment-reactions{
+  margin-left: 50px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.comment-reactions div{
+  display: inline-block;
+  margin-right: 20px;
+}
+
+
+#reply-comment-div{
+  position: fixed;
+  z-index: 1010;
+  width: 40%;
+  background: #ffffff;
+  text-align: center;
+  display: none;
+  padding-bottom: 5px;
+  left: 25%;
+  top: 30px;
+}
+
+#reply-comment-div .title{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  background: #ebebeb;;
+}
+
+
+
+.replies img{
+  width: 20px
+}
+
+.reply-reactions{
+  margin-left: 50px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.reply-reactions div{
+  display: inline-block;
+  margin-right: 20px;
+}
+
+
+.reply{
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.reply-comment-div{
+  margin-top: 10px;
+  width: 100%;
+  display: none;
+}
+
+.reply-comment-field{
+  width: 90%;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #ebebeb;
+  margin-bottom: 5px;
+  display: block;
+  background: #ffffff;
+}
+
+/* .reply-comment-div .user-profile{
+  display: inline-block;
+  width: 5%;
+} */
+
+
+
+.reply-comment-field:focus{
+  outline: none;
+}
+
+.reply-comment-div button{
+  margin-right: 10px;
+  font-size: small;
+  width: 50px;
+}
+
+
+.reply .header{
+  display: block;
+}
+
+.reply
+
+.edit-reply-div{
+  width: 100%;
+}
+
+.edit-reply-field{
+  width: 100%;
+  border: 1px solid #ebebeb;
+  border-radius: 15px;
+  outline: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+
+}
+
+.edit-reply-div button{
+  font-size: small;
+  width: 50px;
+  margin-right: 10px;
+}
+
+/* showing option of delete, edit or report a comment*/
+#more-post-option{
+  position: fixed;
+  z-index: 1010;
+  width: 500px;
+  background: #ffffff;
+  overflow: scroll;
+  text-align: center;
+  display: none;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  margin: 0 auto;
+
+}
+
+@media(max-width: 1000px){
+  #more-post-option{
+    width: 90%;
+    margin-left: 0px;
+  }
+}
+
+#more-post-option p{
+  margin-top: 10px;
+  padding: 20px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+#more-post-option p:hover{
+  color:red;
+}
+
+
+.alert-box-comment, .alert-message{
+  top: 45%;
+  left: 25%;
+}
+
+@media(max-width: 1000px){
+  .alert-box-comment {
+    width: 90%;
+    left: 5%;
+  }
+}

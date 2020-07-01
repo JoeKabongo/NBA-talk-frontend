@@ -1,0 +1,65 @@
+<div class="editor">
+  <div class="container">
+      <form #articleForm="ngForm" >
+
+        <div id="fields">
+          <h3> Title</h3>
+          <input
+          class="form-control" type="text"
+          placeholder="Article Title" id="title"
+          required [(ngModel)]="article.title"
+          name="title"
+        >
+          <h3> Image</h3>
+          <img *ngIf="previewUrl" [src]="previewUrl" height="300" />
+          <input type="file" name="pic" required (change)="onFileChanged($event)" accept="image/*" >
+
+          <h3> Blurb</h3>
+          <textarea  type="text"
+          placeholder="Write a little summary or catch phrase about this article" id="blurb"
+          required [(ngModel)]="article.blurb"
+          name="blurb">
+          </textarea>
+
+         <h3>Hashtags</h3>
+          <input
+          class="form-control" type="text"
+          placeholder="Enter up to four tags separated by a comma" id="tags"
+          [(ngModel)]="tags"
+          name="tags">
+        </div>
+
+        <ckeditor
+        [config]="editorConfig" [editor]="Editor"
+        required [(ngModel)]="article.body"
+        data="" name="text"
+        ></ckeditor> <br>
+
+      </form>
+
+
+    </div>
+</div>
+
+<div id="button-options">
+      <button
+      type="submit" class="btn btn-primary"
+      [disabled]="articleForm.invalid"
+      (click)="publishArticle()"
+      *ngIf="!article.isPublished"
+    >Publish</button>
+
+    <button
+      type="submit" class="btn btn-primary"
+      [disabled]="articleForm.invalid"
+      (click)="saveArticle(false)"
+    >Save</button>
+
+
+
+    <button
+    type="submit" class="btn btn-primary"
+    [disabled]="articleForm.invalid"
+    (click)="saveArticle(true)"
+    >Save and Exit</button>
+</div>

@@ -1,0 +1,62 @@
+<div id="confirm-publish" class="alert-box">
+
+    <p *ngIf="isPublishing">  Article has been published!</p>
+    <p *ngIf="!isPublishing">  Article has been unpublished!</p>
+
+    <button *ngIf="isPublishing" (click)="goToPublishedArticle()"> View  </button>
+    <button (click)="closePublishedConfirmation()"> Close</button>
+
+</div>
+
+<div id="confirm-deletion" class="alert-box">
+    <div class="header">
+        Delete article?
+    </div>
+    <p> Are you sure you want to permanantly delete this article?</p>
+    <button (click)="closeDeletionWindow()"> Cancel</button>
+    <button (click)="deleteArticle(articleToDeleteId, articleToDeleteIndex)"> Delete </button>
+</div>
+
+
+<div class="main-container">
+  <div class="title">
+    <h2>  Dashboard</h2>
+ </div>
+
+ <div class="container" *ngIf="isWriter()">
+  <div class="menu">
+    <p class="clickable current" (click)="viewAll()" id="all-button"> ALL <span> ({{allArticles.length}})</span> </p>
+    <p class="clickable" (click)="viewDrafts()" id="draft-button"> DRAFTS ({{drafts.length}})</p>
+    <p class="clickable" (click)="viewPublished()" id="published-button"> PUBLISHED  ({{publishedArticles.length}})</p>
+
+  </div>
+
+  <div id="article-list" class="">
+     <div *ngFor="let article of currentlyShowed, let i=index" class="article">
+         <div >
+           <img [src]="article.coverImage">
+           <h3> {{article.title}} </h3>
+           <small> Last edit:  {{article.lastEdited}}</small>
+         </div>
+         <div id="buttons-div">
+           <button *ngIf="article.isPublished" (click)="unpublishArticle(article.id, i)"> Unpublish</button>
+           <button *ngIf="article.isPublished" (click)="viewArticlePage(article.id, article.title)"> View </button>
+           <button *ngIf="!article.isPublished" (click)="publishArticle(article.id, i)"> Publish</button>
+           <button (click)="editArticle(article.id)"> Edit </button>
+           <button (click)="confirmDeletionWindow(article.id, i)"> Delete </button>
+
+         </div>
+     </div>
+  </div>
+
+ </div>
+ <div class="joinus-div" *ngIf="!isWriter()">
+  <p>  You are not writer! Wants to be a writer?? Contact us! </p>
+  <p>  Email:<a href="mailto:jonathankabongo23@gmail.com"> jonathankabongo23@gmail.com </a>  </p>
+  <p> Phone number: +1 646-954-9444 </p>
+  You will be able to manage your article on here once we have given access to this. <br>
+  We cannot work to work with you!
+
+</div>
+
+</div>

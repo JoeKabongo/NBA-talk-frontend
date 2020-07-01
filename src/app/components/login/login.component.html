@@ -1,0 +1,40 @@
+<section id="login-section">
+  <div class="login-title">
+    <h1> Login</h1>
+    <i  (click)="goHomePage()" class="fas fa-times close-window-button clickable"></i>
+  </div>
+
+
+
+  <div id="form">
+      <div id="errors">
+        <ul *ngFor="let item of alertContent">
+          <li> {{item}}</li> <br>
+        </ul>
+      </div>
+      <form  #loginForm="ngForm">
+
+
+          <input
+            placeholder="Username or email" type="text" id="username"
+            [(ngModel)]="usernameOrEmail" name="username" (keyup)="removeErrorMessages()" required>
+
+          <!-- <div *ngIf="username.invalid && (username.dirty || username.touched)">
+
+            <div *ngIf="username.errors.required">
+              username is required!
+            </div>
+          </div> -->
+
+          <input
+            placeholder="Password" type="password" id="password"
+            [(ngModel)]="password" name="password"  (keyup)="removeErrorMessages()" required>
+
+
+          <button type="button" (click)="loginUser()" [disabled]="!loginForm.form.valid"> Login  </button>
+
+        </form>
+        <p> Don't have an account ? <a routerLink="/signup"> Signup</a></p>
+        <p> <a routerLink="/forgotPassword" > I forgot my password </a> </p>
+    </div>
+</section>

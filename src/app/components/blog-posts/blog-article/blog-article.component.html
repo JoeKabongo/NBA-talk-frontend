@@ -1,0 +1,155 @@
+<section id="suggestion-big-screen">
+    <div class="suggestions">
+        <h2>You may also like</h2>
+
+        <a routerLink="/blog/article" class="article">
+          <div class="image">
+            <img src="../../../assets/images/steph.jpg">
+          </div>
+          <div class="text">
+            <p class="title"> <strong> Curry getting ready for this season </strong></p>
+            <p class="date">  <small> <i class="far fa-calendar-alt"> </i>  June 1, 2019 </small></p>
+          </div>
+
+        </a>
+        <a routerLink="/blog/article" class="article">
+          <div class="image">
+            <img src="../../../assets/images/steph.jpg">
+          </div>
+          <div class="text">
+            <p class="title"> <strong> Curry getting ready for this season </strong></p>
+            <p class="date">  <small> <i class="far fa-calendar-alt"> </i>  June 1, 2019 </small></p>
+          </div>
+
+        </a>
+
+        <a routerLink="/blog/article" class="article">
+          <div class="image">
+            <img src="../../../assets/images/lebron.jpeg">
+          </div>
+          <div class="text">
+            <p class="title"> <strong> Curry getting ready for this season </strong></p>
+            <p class="date">  <small> <i class="far fa-calendar-alt"> </i>  June 1, 2019 </small></p>
+          </div>
+
+        </a>
+
+    </div>
+
+    <div id="share">
+      <h2>Share</h2>
+      <a href="" class="facebook-icon">   <i class="fab fa-facebook"></i> </a>
+      <a hre="" class="twitter-icon">   <i class="fab fa-twitter"></i>  </a>
+
+    </div>
+
+</section>
+<!--
+<div class="alert-message">
+  <div class="header"> <h3> Error </h3></div>
+  <div class="content">
+     {{errorMessage}}
+  </div>
+    <button (click)="closeErrorBox()"> Close </button>
+</div>
+
+
+<div class="alert-box">
+  <div class="header"> <h3> here {{currentType}}?</h3></div>
+  <div class="content">
+      Are you sure you want to permanently detele this {{currentType}}?
+  </div>
+    <button (click)="closeDeleteConfirmation()" > Cancel </button>
+    <button (click)="deleteInstance()"> Delete </button>
+</div> -->
+
+<!-- <div id="more-post-option">
+
+  <div *ngIf="currentType==COMMENT ">
+    <p class="clickable" (click)="editInstance()" *ngIf="selectedComment.username === currentUsername"
+    > Edit {{currentType}}</p>
+    <p  class="clickable" (click)="confirmDeletion()"
+    *ngIf="selectedComment.username === currentUsername"> Delete {{currentType}}</p>
+     <p  class="clickable" *ngIf="selectedComment.username !==currentUsername" > Report</p>
+  </div>
+
+  <div *ngIf="currentType==REPLY ">
+    <p class="clickable" (click)="editInstance()" *ngIf="selectedReply.username === currentUsername"
+    > Edit {{currentType}}</p>
+    <p  class="clickable" (click)="confirmDeletion()"
+    *ngIf="selectedReply.username === currentUsername"> Delete {{currentType}}</p>
+     <p  class="clickable" *ngIf="selectedReply.username !==currentUsername" > Report</p>
+  </div>
+  <p  class="clickable"
+  (click)="closeMoreOption()"> Cancel </p>
+</div> -->
+
+<section class="middle">
+    <div class="page-title">
+        <h2> {{blogArticle.title}} </h2>
+        <p> By <a routerLink="/profile/{{blogArticle.authorName}}">  {{blogArticle.authorName}} </a> &#xb7; &nbsp; <i class="far fa-calendar-alt"> </i>  {{blogArticle.datePublished}}</p>
+    </div>
+    <div class="space"> </div>
+    <img id="coverImage" [src]=blogArticle.coverImage>
+    <div id="content" [innerHTML]="blogArticle.body">
+
+    </div>
+    <div id="suggestions-small-screen">
+        <div class="suggestions">
+            <h2>You may also like</h2>
+
+            <a routerLink="/blog/article" class="article">
+              <div class="image">
+                <img src="../../../assets/images/steph.jpg">
+              </div>
+              <div class="text">
+                <p class="title"> <strong> Curry getting ready for this season </strong></p>
+                <p class="date">  <small> <i class="far fa-calendar-alt"> </i>  June 1, 2019 </small></p>
+              </div>
+
+            </a>
+            <a routerLink="/blog/article" class="article">
+              <div class="image">
+                <img src="../../../assets/images/steph.jpg">
+              </div>
+              <div class="text">
+                <p class="title"> <strong> Curry getting ready for this season </strong></p>
+                <p class="date">  <small> <i class="far fa-calendar-alt"> </i>  June 1, 2019 </small></p>
+              </div>
+
+            </a>
+
+            <a routerLink="/blog/article" class="article">
+              <div class="image">
+                <img src="../../../assets/images/lebron.jpeg">
+              </div>
+              <div class="text">
+                <p class="title"> <strong> Curry getting ready for this season </strong></p>
+                <p class="date">  <small> <i class="far fa-calendar-alt"> </i>  June 1, 2019 </small></p>
+              </div>
+
+            </a>
+
+        </div>
+
+        <div id="share-small-screen">
+          <h2>Share</h2>
+          <a href="" class="facebook-icon">   <i class="fab fa-facebook"></i> </a>
+          <a hre="" class="twitter-icon">   <i class="fab fa-twitter"></i>  </a>
+        </div>
+      </div>
+
+    <div id="comments-section">
+        <div id="write-comment-div">
+          <h2> Comments ({{blogArticle.comments}})</h2>
+
+            <form #saveCommentForm="ngForm" (submit)="submitComment()">
+                <textarea placeholder="write a comment" [(ngModel)]="newComment" name="newComment"></textarea>
+                <button type="submit" [disabled]="newComment.length === 0"> Comment</button>
+            </form>
+        </div>
+       <app-comments> </app-comments>
+    </div>
+
+</section>
+

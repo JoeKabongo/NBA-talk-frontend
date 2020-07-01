@@ -1,0 +1,73 @@
+<div class="main">
+  <div class="pagetitle">
+    <h2> Blog </h2>
+  </div>
+  <!-- <section id="headline">
+    <div class="container">
+      <div class="arrow-left">
+            <i class="fas fa-arrow-left" (click)="changeSlide(true)"></i>
+      </div>
+
+      <div class="arrow-right">
+          <i class="fas fa-arrow-right" (click)="changeSlide(false)"></i>
+      </div>
+
+      <a routerLink="/blog/article"  class="article fade">
+        <img src="../../../assets/images/kawhi.jpeg">
+        <div class="title">
+          <span> What happens this season </span>
+          <div class="info">
+                <small> By <span class="authorName">  Jonathan Tshimpaka </span>
+                  &#xb7; &nbsp; <i class="far fa-calendar-alt"> </i>  June 1, 2019</small>
+            </div>
+        </div>
+      </a>
+
+      <a routerLink="/blog/article" class="article fade">
+          <img src="../../../assets/images/lebron.jpeg">
+          <div class="title">
+              <span> LEBRON IS READY FOR THE NBA SEASON </span>
+              <div class="info">
+                  <small> By <span class="authorName">  Jonathan Tshimpaka </span>
+                    &#xb7; &nbsp; <i class="far fa-calendar-alt"> </i>  June 1, 2019</small>
+              </div>
+          </div>
+        </a>
+
+        <a routerLink="/blog/article" class="article fade">
+          <img src="../../../assets/images/steph.jpg">
+          <div class="title">
+            <span> Three peat</span>
+            <div class="info">
+                  <small> By <span class="authorName">  Jonathan Tshimpaka </span>
+                    &#xb7; &nbsp; <i class="far fa-calendar-alt"> </i>  June 1, 2019</small>
+              </div>
+          </div>
+        </a>
+
+
+   </div >
+  </section> -->
+
+
+  <section id="others">
+    <a *ngFor="let article of blogArticles" [routerLink]="['/blog', article.id, article.title]" class="article">
+      <img [src]=article.coverImage>
+      <div class="text">
+          <div class="title" > {{article.title}} </div>
+          <div class="author" >
+            <small> By <span class="authorName">  {{article.authorName}} </span>  &#xb7; &nbsp; <i class="far fa-calendar-alt"> </i>  {{article.datePublished}}</small>
+          </div>
+          <div class="blurb"  >
+              {{article.blurb}}
+          </div>
+      </div>
+
+    </a>
+  </section>
+
+
+
+
+</div>
+

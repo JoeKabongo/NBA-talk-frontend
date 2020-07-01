@@ -1,0 +1,111 @@
+.main-container{
+  display: inline-block;
+  margin-left: 25%;
+  width: 75%;
+
+}
+.title{
+  position: fixed;
+  z-index: 10;
+  width: 75%;
+  background: #ffffff;
+  border-bottom: 1px solid #ebebeb;
+
+}
+h2 {
+  margin: 10px;
+}
+
+
+/* menu style*/
+.menu{
+  margin-top: 60px;
+  width: 90%;
+  padding-left: 5%;
+  margin-bottom: 20px;
+
+}
+
+.menu p{
+  display: inline-block;
+  width: 30%;
+  border: 1px solid #ebebeb;
+  margin: 5px;
+  text-align: center;
+  padding: 5px 5px 5px 5px;
+
+}
+
+.menu .current {
+  color: #ff0000;
+  background: #ebebeb;
+}
+
+
+.menu p:hover{
+  background-color: #ff0000;
+  color: #ffffff;
+
+}
+
+.hide {
+  display: none;
+}
+/* article block */
+#article-list {
+  padding-left: 5%;
+  padding-right: 5%;
+  text-align: center;
+}
+
+.article {
+  display: inline-block;
+  width: 75%;
+  border: 1px solid #ebebeb;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-right: 5px;
+  margin-bottom: 20px;
+
+  background: #ebebeb;
+  text-align: center;
+}
+
+.article img {
+  width: 100px;
+}
+
+#buttons-div{
+  margin-top: 20px;
+}
+#buttons-div button{
+  width: 80px;
+  margin-right: 20px;
+  font-size: small;
+  border: none;
+}
+
+/* message-div*/
+.joinus-div{
+  margin-top: 60px;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+/* confirmation boxes*/
+#confirm-publish, #confirm-deletion{
+  width: 40%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.alert-box{
+  margin-left: 30%;
+  margin-right: 30%;
+  top: 40%;
+}
+
+.alert-box button{
+  width: 70px;
+  font-size: small;
+}

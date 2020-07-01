@@ -1,0 +1,123 @@
+<div class="alert-message">
+    <div class="header"> <h3> Error</h3></div>
+    <div class="content">
+       {{errorMessage}}
+    </div>
+      <button (click)="closeErrorBox()"> Close </button>
+</div>
+
+<div id="not-found" class="alert-message">
+  <div class="header"> <h3> Error</h3></div>
+  <div class="content">
+    HERE
+  </div>
+    <button (click)="redirectHome()"> Close </button>
+</div>
+
+<div class="alert-box">
+  <div class="header"> <h3> Delete POST?</h3></div>
+  <div class="content">
+      Are you sure you want to permanently detele this Post?
+  </div>
+    <button (click)="closeDeleteConfirmation()" > Cancel </button>
+    <button (click)="deletePost()"> Delete </button>
+</div>
+
+<div id="more-post-option-post">
+    <p class="clickable" (click)="showEditWindow()" *ngIf="currentPost.username === currentUserName"
+    > Edit </p>
+    <p  class="clickable" (click)="confirmDeletion(true)"
+    *ngIf="currentPost.username === currentUserName"> Delete </p>
+     <p  class="clickable" *ngIf="currentPost.username !==currentUserName" > Report</p>
+
+  <p  class="clickable"
+  (click)="closeMoreOptionPost()"> Cancel </p>
+</div>
+
+
+
+<div class="middle">
+
+  <div class="title">
+    <div class="container">
+      <div>
+          <h2> {{currentPost.username}} 's Post </h2>
+      </div>
+    </div>
+  </div>
+  <div class="space"> </div>
+    <div class="detail-talk" id=post.id>
+        <div class="more">
+            <i  class="fas fa-ellipsis-h" (click)="showMoreOptionPost()" style="float:right"></i>
+        </div>
+
+        <div class="about">
+          <div>
+              <a routerLink="/profile/{{currentPost.username}}"> <img  class="profile-image-large" [src]="currentPost.profileImage" alt="My image"> </a>
+          </div> &nbsp;
+          <div>
+              <a routerLink="/profile/{{currentPost.username}}"> <b> {{currentPost.username}} </b> </a> <br> <span id="date-posted"> {{currentPost.time}}</span>
+          </div>
+
+        </div>
+
+        <div class="content">
+            {{currentPost.content}}
+        </div>
+
+
+        <div class="actions">
+            <div>
+              <span class="clickable">
+                  <i *ngIf="currentPost.isLiked "
+                  class="fas fa-thumbs-up reaction" style="color: red" (click)="removeReaction()"></i>
+
+                  <i *ngIf="!currentPost.isLiked "
+                  class="far fa-thumbs-up reaction" (click)="likePost()"></i>
+
+              </span>
+              <span *ngIf="currentPost && currentPost.likes > 0"> {{currentPost.likes}} </span>
+            </div>
+            <div>
+              <span class="clickable">
+                <i *ngIf="currentPost.isDisliked"
+                class="fas fa-thumbs-down reaction" style="color: red" (click)="removeReaction()"></i>
+
+                <i *ngIf="!currentPost.isDisliked"
+                class="far fa-thumbs-down reaction" (click)="dislikePost()"></i>
+
+              </span>
+              <span *ngIf="currentPost && currentPost.dislikes > 0"> {{currentPost.dislikes}} </span>
+            </div>
+            <div>
+               <i class="far fa-comment reaction" ></i>  <span *ngIf="currentPost && currentPost.comments > 0"> {{currentPost.comments}} </span>
+            </div>
+            <!-- <div>
+              <i class="fas fa-share-alt reaction"></i>
+            </div> -->
+        </div>
+        <span id="comment-length"  *ngIf="isLoggedIn"> {{MAX_LENGHT_COMMENT -  newComment.trim().length}}</span><br>
+        <form #addCommentForm="ngForm" (submit)="saveComment()">
+          <textarea *ngIf="isLoggedIn" id="add-comment-field" [(ngModel)]="newComment" placeholder="Add a comment"
+          required (click)=showCommentLenght() (keypress)=updateCommentLenght($event) (keydown)=updateCommentLenght($event)  name="commentField">
+
+          </textarea> <br *ngIf="isLoggedIn">
+          <button type="submit" *ngIf="isLoggedIn"  [disabled]="addCommentForm.invalid || newComment.trim().length > MAX_LENGHT_COMMENT"
+          > Comment</button>
+
+        </form>
+
+
+    </div>
+    <div class="comments-div">
+       <h3 style="margin: 10px;"> Comments ({{currentPost.comments}})</h3>
+       <app-comments></app-comments>
+    </div>
+
+
+</div>
+
+<div id="right">
+
+</div>
+

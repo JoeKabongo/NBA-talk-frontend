@@ -1,0 +1,71 @@
+<section id="signup-section">
+  <div class="signup-title">
+    <h1> Sign up and let talk NBA!</h1>
+    <i  (click)="goHomePage()" class="fas fa-times close-window-button clickable"></i>
+
+  </div>
+
+
+
+  <div id="form">
+    <div id="errors">
+      <ul *ngFor="let item of alertContent">
+        <li> {{item}}</li> <br>
+      </ul>
+    </div>
+      <form ngNativeValidate  #signupForm="ngForm" >
+
+
+          <input required email="true"  id="email" placeholder="Email"
+
+                 [(ngModel)]="emailaddress" name="email"
+                 #name="ngModel" (keyup)="removeErrorMessage()">
+
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+            <div *ngIf="name.errors.required">
+              Email is required!
+            </div>
+            <div *ngIf="name.invalid">
+                Email is invalid!
+            </div>
+
+          </div>
+
+          <input required
+            placeholder="Username" type="text" id="username"
+            [(ngModel)]="username" name="username" maxlength="20"  #usernameField="ngModel" (keyup)="removeErrorMessage()">
+
+          <div *ngIf="usernameField.invalid && (usernameField.dirty || usernameField.touched)"class="alert alert-danger">
+
+              <div *ngIf="usernameField.errors.required">
+                Username is required!
+              </div>
+
+          </div>
+
+
+          <input required
+            placeholder="Password" type="password" id="password"
+            [(ngModel)]="password" name="password"  minlength="5" maxlength="20" (keyup)="removeErrorMessage()" >
+
+          <input required
+            placeholder="Confirm Password" type="password" id="confirm-password"
+            [(ngModel)]="confirmPassword" name="confirmPassword"
+            required minlength="5" maxlength="20"   #confirmationPassword="ngModel" (keyup)="removeErrorMessage()">
+
+          <div style="margin-bottom: 30px;" *ngIf="confirmationPassword.dirty || confirmationPassword.touched" class="alert alert-danger">
+
+              <div *ngIf="password != confirmPassword">
+                  Password does not match
+              </div>
+          </div>
+
+          <button type="button" (click)="createUser()" [disabled]="!signupForm.form.valid || password != confirmPassword">
+            Sign up
+          </button>
+
+        </form>
+        <p> Already has an account ? <a routerLink="/login"> Login</a></p>
+    </div>
+</section>

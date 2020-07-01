@@ -1,0 +1,233 @@
+a{
+  text-decoration: none;
+  color: #000000;
+}
+
+
+/* styling the middle section of the webpage where posts aka post are viewed */
+ .middle{
+  display: inline-block;
+  margin-left: 25%;
+  width: 50%;
+  /* border-right: 1px solid #ebebeb; */
+
+}
+.page-title{
+  width: 50% !important;
+}
+
+.page-title a:hover{
+  color:#ff0000;
+}
+
+.page-title h2, .page-title p{
+  margin: 10px;
+}
+
+.page-title p{
+  font-size: 15px;
+}
+.space{
+  margin-top:75px;
+}
+
+#content {
+  margin: 10px;
+  margin-bottom: 30px;
+}
+
+#coverImage {
+  width: 100%;
+}
+
+
+@media screen and (max-width : 1000px){
+  .middle{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border-right: 1px solid #ebebeb;
+    margin-top: 55px;
+
+
+  }
+  .page-title{
+    position: static;
+    width: 100% !important;
+
+  }
+  .space{
+    display: none;
+  }
+}
+
+/* Comment section style */
+
+
+#comments-section{
+  border-top: 3px solid #ebebeb;
+}
+#write-comment-div{
+  margin-bottom: 50px;
+  padding: 10px;
+}
+
+#write-comment-div h2{
+  margin-bottom: 20px;
+}
+#write-comment-div textarea{
+  width: 98%;
+  height: 100px;
+  padding: 1%;
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+  outline: none;
+}
+
+
+
+/* showing option of delete, edit or report a comment*/
+#more-post-option{
+  position: fixed;
+  z-index: 1010;
+  width: 500px;
+  background: #ffffff;
+  overflow: scroll;
+  text-align: center;
+  display: none;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  margin: 0 auto;
+
+}
+
+@media(max-width: 1000px){
+  #more-post-option{
+    width: 90%;
+    margin-left: 0px;
+    background-color: red;
+  }
+}
+
+#more-post-option p{
+  margin-top: 10px;
+  padding: 20px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+#more-post-option p:hover{
+  color:red;
+}
+
+
+.alert-box, .alert-message{
+  top: 40%;
+  left: 30%;
+  width: 40%;
+}
+
+@media(max-width: 1000px){
+  .alert-box {
+    width: 90%;
+    left: 5%;
+  }
+}
+
+/* Styling the righmost part of the webpage which contains blog post suggestion and people to follow*/
+
+#suggestion-big-screen{
+  position: fixed;
+  display: inline-block;
+  padding-top: 20px;
+  margin-left: 75%;
+  width: 25%;
+  padding: 10px;
+  height: 100vh;
+  border-left: 1px solid #ebebeb;
+
+
+}
+
+@media screen and (max-width : 1000px){
+  #suggestion-big-screen{
+    display: none;
+  }
+}
+
+.suggestions, #share{
+  margin-left: 10px;
+}
+
+.suggestions .article{
+  margin-top: 10px;
+  display: table;
+}
+
+.suggestions .article .image{
+  display: table-cell;
+  width: 5%;
+  vertical-align: middle;
+}
+
+.suggestions img {
+  width: 100%;
+}
+.suggestions .article  .text{
+  display: table-cell;
+  width: 60%;
+  padding: 10px;
+}
+
+.suggestions .article .text .title:hover{
+  color:#ff0000;
+}
+
+#share{
+  margin-top: 20px;
+}
+
+.facebook-icon{
+  color:#0000ff !important;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.twitter-icon{
+  color: #1DA1F2 !important;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-right: 10px;
+  display: inline-block;
+
+}
+button{
+ border: 1px solid #ff0000;
+ width: 100px;
+ height: 30px;
+ border-radius: 10px;
+ color: #ff0000;
+ font-weight: bold;
+ font-size:15px;
+}
+
+button:hover{
+ background:  #ff0000;
+ color:white;
+}
+
+/* suggestion for small screens */
+@media screen and (min-width : 1000px){
+  #suggestions-small-screen{
+    display: none;
+  }
+}
+
+#share-small-screen{
+  margin: 10px;
+}
+
+

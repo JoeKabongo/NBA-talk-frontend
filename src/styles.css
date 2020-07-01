@@ -1,0 +1,276 @@
+/* You can add global styles to this file, and also import other style files */
+
+*{
+  margin:0px;
+  padding: 0;
+}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+
+}
+.page-title{
+  position: fixed;
+  z-index: 10;
+  background: #ffffff;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.page-title h1{
+  margin: 10px;
+}
+
+
+ button{
+  border: 1px solid #ebebeb;
+  width: 150px;
+  height: 30px;
+  border-radius: 10px;
+  color: #ff0000;
+  font-weight: bold;
+  font-size:15px;
+}
+
+button:hover:enabled{
+  background:  #ff0000;
+  color:white;
+}
+
+button:disabled{
+  opacity: 0.4;
+}
+/* Style for the post aka talk*/
+.talk{
+  padding: 2.5%;
+  width: 95%;
+  border-bottom: 1px solid #ebebeb;
+  overflow: hidden;
+  border-right: 1px solid #ebebeb;
+  position: relative;
+
+}
+
+
+.deleting{
+  -webkit-animation-name: deletion; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+  animation-name: deletion;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+}
+
+
+/* Safari 4.0 - 8.0  animation when deleting a post*/
+@-webkit-keyframes deletion {
+  from{
+    opacity: 1;
+    height: 100px;
+
+  }
+  to{
+    opacity: 0;
+    height: 0px;
+
+  }
+}
+
+
+
+@keyframes deletion{
+  from{
+    opacity: 1;
+    height: 100px;
+
+  }
+  to{
+    opacity: 0;
+    height: 0px;
+
+  }
+}
+
+
+.talk .about{
+  display: table;
+}
+.talk .username{
+  color: #ff0000;
+}
+
+.talk .username:hover{
+  color: #000000;
+}
+#talk-detail{
+ font-size: 20px;
+}
+
+.talk .about div{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.liked {
+  color: red;
+}
+
+.talk .more{
+  position: absolute;
+  right: 50px;
+}
+
+.more-button {
+  float: right;
+}
+
+.drop-down-menu-more{
+  padding: 5px;
+  background: #ffffff;
+  display: none;
+  margin-top: 15px;
+  border: 1px solid #ebebeb
+
+}
+
+.talk .content{
+  margin-top: 10px;
+  padding: 2px;
+  word-wrap: break-word;
+}
+
+.talk .profile-image{
+  width: 40px;
+  height: 40px;
+}
+
+.talk .profile-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.talk .profile-image-large{
+  width: 60px;
+  height: 60px;
+}
+
+.talk .time{
+  color: gray;
+  font-size: small;
+}
+
+.talk span{
+  display: inline-block;
+}
+
+.reactions{
+  margin-top: 40px;
+  text-align: center;
+
+}
+
+.reactions div{
+ display: inline-block;
+ width: 25%;
+}
+
+.reaction{
+  color: #c0c0c0;
+  font-size: 18px;
+}
+
+.reactions > div > span{
+  font-size: 18px;
+  display: inline-block;
+}
+
+.reaction-count{
+  display: inline-block;
+  margin-left: 3px;
+  color: #000000 !important;
+  font-size: 15px !important;
+}
+
+.talk .drop-down-menu p{
+  margin: 10px;
+}
+
+.talk .drop-down-menu p:hover{
+  color: red;
+}
+
+
+/*  Style for the alert-box*/
+/* pop up alert */
+.alert-box,  .alert-message{
+  position: fixed;
+  z-index: 1010;
+  width: 40%;
+  background: #ffffff;
+  /* overflow: scroll; */
+  text-align: center;
+  display: none;
+  padding-bottom: 5px;
+}
+
+
+.alert-box .header, .alert-message .header{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  position: relative;
+  border-bottom: 2px solid #ebebeb;
+}
+
+.alert-box .content, .alert-message .content{
+  margin-left: 10px;
+}
+
+.alert-box button, .alert-message button{
+  margin: 10px;
+}
+#cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:100%;
+  background-color: none;
+  opacity:0.7;
+  display: none;
+  z-index: 1000;
+  background: #000000;
+}
+
+
+.clickable{
+  cursor: pointer;
+}
+
+.reaction-count{
+  color: #000000;
+}
+
+.fas .fa-thumbs-up{
+  color: #ff0000 !important;
+}
+
+.fas .fa-thumbs-down{
+  color: #ff0000;
+}
+
+
+.close-window-button{
+
+float: right;
+margin-right: 10px;
+}
+
+.close-window-button:hover{
+  color: red;
+}
+

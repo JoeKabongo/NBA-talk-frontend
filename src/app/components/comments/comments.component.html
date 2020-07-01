@@ -1,0 +1,180 @@
+<div id="more-post-option">
+  <div *ngIf="currentType===COMMENT_TYPE ">
+    <p class="clickable" (click)="showEditCommentField()" *ngIf="selectedComment.username === currentUsername"
+    > Edit {{currentType}}</p>
+    <p  class="clickable" (click)="showDeleteConfirmationWindow()"
+    *ngIf="selectedComment.username === currentUsername"> Delete {{currentType}}</p>
+     <p  class="clickable" *ngIf="selectedComment.username !==currentUsername" > Report</p>
+  </div>
+
+  <div *ngIf="currentType==REPLY_TYPE ">
+    <p class="clickable" (click)="showEditCommentField()" *ngIf="selectedReply.username === currentUsername"
+    > Edit {{currentType}}</p>
+    <p  class="clickable" (click)="showDeleteConfirmationWindow()"
+    *ngIf="selectedReply.username === currentUsername"> Delete {{currentType}}</p>
+     <p  class="clickable" *ngIf="selectedReply.username !==currentUsername" > Report</p>
+  </div>
+  <p  class="clickable"
+  (click)="closeMoreOption()"> Cancel  </p>
+</div>
+
+<div class="alert-box alert-box-comment">
+
+  <div class="header"> <h3> DELETE {{currentType}}?</h3></div>
+  <div class="content">
+      Are you sure you want to permanently detele this {{currentType}}?
+  </div>
+    <button (click)="closeDeleteConfirmationWindow()" > Cancel </button>
+    <button *ngIf="currentType===COMMENT_TYPE "(click)="deleteComment()"> Delete </button>
+    <button *ngIf="currentType===REPLY_TYPE "(click)="deleteReply()"> Delete </button>
+
+</div>
+
+
+<div class="main-container">
+  <div class="comment" *ngFor="let comment of comments; let i = index">
+    <div class="user-image">
+      <img [src]="comment.profileImage">
+    </div>
+    <div class="content">
+        <div class="read-only">
+            <i  class="fas fa-ellipsis-h" (click)="showMoreOption(COMMENT_TYPE, i, $event)" style="float:right"></i>
+
+            <div class="header">
+              <a routerLink="/profile/{{comment.username}}" routerLinkActive="router-link-active" > <b> {{comment.username}} </b>  </a>
+              <span class="comment-time">{{formatTime(comment.time)}}  </span>
+            </div>
+            {{comment.content}} <br>
+        </div>
+        <div class="edit-comment-div" >
+            <div class="no-outline edit-comment-field" [contentEditable]=true (keydown)="preventEnterKey($event)">
+                 {{comment.content}}
+            </div>
+            <button (click)="submitEditComment($event, i)"> Save </button>
+            <button (click)="cancelEditing($event, i)">  Cancel</button>
+        </div>
+
+    </div>
+
+
+    <div class="comment-reactions">
+      <div>
+          <span class="clickable">
+            <i *ngIf="comment.isLiked" class="fas fa-thumbs-up reaction"
+            style="color: red" (click)="unlikeComment(i)">
+
+            </i>
+            <i *ngIf="!comment.isLiked" class="far fa-thumbs-up reaction" (click)="likeComment(i)">
+
+            </i>
+
+
+
+          </span>
+          <span *ngIf="comment.likes > 0" >
+              {{comment.likes}}
+          </span>
+
+      </div>
+      <div>
+          <span class="clickable">
+            <i *ngIf="comment.isDisliked" class="fas fa-thumbs-down reaction"
+              (click)="undislikeComment(i)" style="color: red">
+            </i>
+            <i *ngIf="!comment.isDisliked" class="far fa-thumbs-down reaction" (click)="dislikeComment(i)">
+            </i>
+          </span>
+          <span *ngIf="comment.dislikes > 0">
+            {{comment.dislikes}}
+          </span>
+
+      </div>
+
+       <!-- <div>
+        <span  *ngIf="isLoggedIn" class="clickable" (click)="showReplyCommentField($event)">  reply </span>
+      </div> -->
+      <div >
+        <span *ngIf="!displayRepliesStatus.has(comment.id) || !displayRepliesStatus.get(comment.id)"
+            class="clickable" (click)="viewReplies(comment.id, i, $event)" style="color:red;">
+
+          <p *ngIf=" comment.replies == 1"> View {{comment.replies}} reply </p>
+          <p *ngIf=" comment.replies > 1"> View {{comment.replies}} replies </p>
+
+        </span>
+        <span *ngIf="displayRepliesStatus.get(comment.id) && comment.replies > 0"
+        class="clickable hide-reply-button" (click)="hideReplies(comment.id, $event)" style="color: red;">
+          Hide replies
+        </span>
+      </div> <br>
+
+      <div class="replies" *ngIf="commentToReplies.has(comment.id) && displayRepliesStatus.get(comment.id)" style="display: block;">
+        <div *ngFor="let reply of commentToReplies.get(comment.id), let j = index" class="reply">
+            <div class="user-image">
+                <img [src]="reply.profileImage">
+            </div>
+            <div class="content">
+                <div class="read-only">
+                    <i  class="fas fa-ellipsis-h" (click)="showMoreOption(REPLY_TYPE, j, $event, i)" style="float:right"></i>
+                    <div class="header">
+                      <a routerLink="/profile/{{comment.username}}" routerLinkActive="router-link-active" > <b> {{reply.username}} </b>  </a>
+                      <span class="comment-time">{{formatTime(reply.time)}}  </span>
+                    </div>
+
+                    {{reply.content}} <br>
+                </div>
+                <div class="edit-reply-div" style="display: none;">
+                    <div class="no-outline edit-reply-field"   [contentEditable]=true (keydown)="preventEnterKey($event)">
+                        {{reply.content}}
+                    </div>
+                    <button (click)="submitEditReply($event, j, i)"  > Save </button>
+                    <button  (click)="cancelEditing($event, i, j)">Cancel</button>
+                </div>
+
+            </div>
+            <div class="reply-reactions">
+                <div>
+                    <span class="clickable">
+                        <i *ngIf="reply.isLiked" class="fas fa-thumbs-up reaction"
+                        (click)="deleteReactionReply(comment.id, reply.id, j)" style="color: red"></i>
+
+                        <i *ngIf="!reply.isLiked" class="far fa-thumbs-up reaction"
+                        (click)="likeReply(comment.id, reply.id, j)"></i>
+
+                    </span>
+                    <span *ngIf="reply.likes > 0">
+                      {{reply.likes}}
+                    </span>
+                </div>
+                <div>
+                    <span class="clickable">
+                        <i *ngIf="reply.isDisliked" class="fas fa-thumbs-down reaction"
+                        (click)="deleteReactionReply(comment.id, reply.id, j)"style="color: red"></i>
+
+                        <i *ngIf="!reply.isDisliked"
+                        class="far fa-thumbs-down reaction" (click)="dislikeReply(comment.id, reply.id, j)"
+                        ></i>
+
+                    </span>
+                    <span *ngIf="reply.dislikes > 0">
+                        {{reply.dislikes}}
+                    </span>
+                </div>
+                <!-- <div>
+                  <span *ngIf="isLoggedIn" href="#addReply" class="clickable" (click)="showReplyCommentField($event)"> reply </span>
+                </div> -->
+            </div>
+
+          </div>
+
+      </div>
+
+      <div  class="reply-comment-div" *ngIf="isLoggedIn">
+        <div contenteditable="true" class="reply-comment-field" (keydown)="preventEnterKey($event)"> </div>
+        <button class="clickable" (click)= "saveReply(comment.id,  i, $event)"> Reply </button>
+        <button class="clickable" (click)="hideReplyCommentField($event)"> Cancel </button>
+      </div>
+  </div>
+
+  </div>
+
+</div>

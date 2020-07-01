@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div id="create-post-window">
+  <div class="header">
+      <span *ngIf="creating"> Create post </span>
+      <span *ngIf="!creating"> Edit post </span>
+     <i  (click)="hideCreatePostWindow()" class="fas fa-times close-window-button clickable"></i>
+  </div>
+
+
+    <textarea [(ngModel)]="newPostContent" [ngModelOptions]="{standalone: true}"  (keyup)="updateCount()"> </textarea>
+      <p id="text-count" [ngStyle]="{ 'color': counterColor }"> {{countCharacters}}</p>
+
+      <button (click)="hideCreatePostWindow()"  class="clickable" > Cancel</button>
+      <button *ngIf="creating" (click)="createPost()"  class="clickable"  [disabled]="countCharacters < 0 || countCharacters == MAXIMUM_POST_LENGTH">
+        Post</button>
+
+      <button *ngIf="!creating" (click)="editPost()"  class="clickable"  [disabled]="countCharacters < 0 || countCharacters == MAXIMUM_POST_LENGTH || newPostContent.trim() === postToEdit.content">
+        Save</button>
+</div>
+
+<!--The content below is only a placeholder and can be replaced.-->
+<div id="message-post-created">
+    <p> Your post was created.  <a routerLink="/post/{{createdPostId}}"> View </a>  </p>
+</div>
+
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+
+

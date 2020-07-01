@@ -1,0 +1,121 @@
+<div id="right-section">
+
+  <div style="margin: 20px; font-size: 20px;">
+    <a routerLink="/search"> <i class="fas fa-search"></i> Searth </a>
+  </div>
+
+  <div id="recent-article-container">
+      <h2>Recent blog post</h2>
+      <div *ngFor="let article of recentArticles" class="article-item">
+        <div class="image-div">
+          <a  [routerLink]="['/blog', article.id, article.title]"> <img  [src]="article.coverImage" alt="My image"> </a>
+        </div>
+        <div class="article-title">
+          <a [routerLink]="['/blog', article.id, article.title]"> <p> {{article.title}} </p> <span> <i class="far fa-calendar-alt"> </i> {{article.datePublished}} </span>  </a>
+        </div>
+      </div>
+  </div>
+
+  <div *ngIf="!isWriter()" style="margin: 10px; font-size: 20px;" >
+    <a routerLink="/jointeam"> JOIN THE TEAM AS WRITTER</a>
+  </div>
+</div>
+
+
+<div class="alert-box">
+  <div class="header"> <h3> Delete post?</h3></div>
+  <div class="content">
+      Are you sure you want to permanently detele this post?
+  </div>
+    <button (click)="cancelDelete()"> Cancel </button>
+    <button (click)="deletePost()"> Delete </button>
+</div>
+
+<div class="alert-message">
+  <div class="header"> <h3> {{alertMessageTitle}}</h3></div>
+  <div class="content">
+      {{alertMessageContent}}
+  </div>
+    <button (click)="closeAlertMessage()"> Close </button>
+
+</div>
+
+
+<div id="more-post-option">
+  <p class="clickable" (click)="showEdit()" *ngIf="postSelectedIndex !== undefined && posts[postSelectedIndex].username === loggedInUsername"
+   > Edit Post</p>
+  <p  class="clickable" (click)="confirmDeletion()" *ngIf="postSelectedIndex !== undefined && posts[postSelectedIndex].username === loggedInUsername"
+   > Delete Post</p>
+  <p  class="clickable" *ngIf="postSelectedIndex !== undefined && posts[postSelectedIndex].username !== loggedInUsername" > Report</p>
+  <p  class="clickable"
+  (click)="closePostMoreOption()"> Cancel </p>
+</div>
+
+
+<div class="middle">
+    <div class="title">
+        <h2> Home </h2>
+    </div>
+    <div class="space"> </div>
+      <div *ngFor="let post of posts, let i=index" class="talk" id=post.id>
+
+            <i  class="fas fa-ellipsis-h more-button" (click)="showPostMoreOption(i, $event)" style="float: right;"></i>
+
+          <div class="about">
+            <div>
+                <a routerLink="/profile/{{post.username}}"> <img  class="profile-image" [src]="post.profileImage" alt="My image"> </a>
+            </div> &nbsp;
+            <div>
+                <a routerLink="/profile/{{post.username}}"> <b class="username"> {{post.username}} </b> </a> <br> <span> {{post.time}}</span>
+            </div>
+
+          </div>
+
+          <div class="content">
+              <!-- <img class="content-image"src="../../../assets/images/lebron.jpeg" alt="My image"> -->
+              <div> {{post.content}}</div>
+
+          </div>
+
+          <div class="reactions">
+              <div>
+                <span class="clickable">
+
+
+                    <i *ngIf="!post.isLiked"
+                    class="far fa-thumbs-up reaction"  (click)="saveLike(i)"></i>
+
+                    <i *ngIf="post.isLiked"
+                    class="fas fa-thumbs-up  reaction"  (click)="removeReaction(i)" style="color: red"></i>
+
+                </span>
+                <span *ngIf="post.likes > 0" class="reaction-count">
+                    {{post.likes}}
+                </span>
+              </div>
+              <div>
+               <span class="clickable">
+                  <i *ngIf="!post.isDisliked"
+                  class="far fa-thumbs-down reaction" (click)="saveDislike(i)"></i>
+
+                  <i *ngIf="post.isDisliked"
+                  class="fas fa-thumbs-down  reaction" (click)="removeReaction(i)" style="color: red"></i>
+                </span>
+                <span *ngIf="post.dislikes > 0" class="reaction-count">
+                    {{post.dislikes}}
+                </span>
+              </div>
+              <div>
+                 <a routerLink="/post/{{post.id}}" routerLinkActive="router-link-active" style="display: inline-block;">
+                  <span class="clickable"> <i class="far fa-comment reaction" ></i> </span>
+                </a>
+                <span *ngIf="post.comments > 0" class="reaction-count"> {{post.comments}} </span>
+              </div>
+
+          </div>
+
+      </div>
+
+</div>
+
+

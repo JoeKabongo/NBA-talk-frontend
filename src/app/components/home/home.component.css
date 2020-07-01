@@ -1,0 +1,188 @@
+
+div{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a{
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover{
+  color: #ff0000;
+}
+
+/* styling the middle section of the webpage where posts aka post are viewed */
+ .middle{
+  display: inline-block;
+  margin-left: 25%;
+  height: 100vh;
+  width: 40%;
+  border-right: 1px solid #ebebeb;
+
+
+}
+
+.title{
+  position: fixed;
+  z-index: 10;
+  width: 40%;
+  background: #ffffff;
+  border-bottom: 1px solid #ebebeb;
+
+}
+.title .container{
+  position: relative;
+  width: 100%;
+}
+
+.title .container div{
+  display: inline-block;
+}
+
+
+.title h2{
+  margin: 10px;
+}
+
+
+#post-button{
+  width: 30px;
+}
+
+.space{
+  display: inline-block;
+  margin-top:50px;
+}
+
+
+/* Styling the righmost part of the webpage which contains blog post suggestion and people to follow*/
+#right-section{
+  position: fixed;
+  display: inline-block;
+  left:65%;
+  width: 35%;
+
+}
+
+#recent-article-container{
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  word-wrap: break-word;
+
+}
+
+.article-item{
+  display: flex;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.article-item div{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.article-item .article-title{
+  margin-left: 10px;
+  word-break: break-all;
+}
+
+.article-title > p, span{
+  display: block;
+}
+
+img{
+  width: 100px;
+}
+
+
+.article-item  span, .talk span{
+ color: gray;
+ font-size: 12px;
+}
+
+
+/* Adjust divs to be web responsive */
+@media(max-width:1000px){
+  #right-section{
+    /* display: block;
+    position: static;
+    margin-left: 0px ;
+    width: 100%;
+    margin-top: 80px;
+    border-bottom: 1px solid #ebebeb;
+    z-index: 0; */
+    display: none;
+
+  }
+  .middle{
+    width: 100%;
+    margin-left: 0px;
+    position: static;
+    display: block;
+    margin-top: 45px;
+
+  }
+
+   .title{
+    display: none ;
+  }
+  .space{
+    display: none;
+  }
+
+}
+
+
+.alert-box, .alert-message{
+  top: 45%;
+  left: 25%;
+}
+
+@media(max-width: 1000px){
+  .alert-box {
+    width: 90%;
+    left: 5%;
+    margin-left: 0px;
+  }
+}
+
+#more-post-option{
+  position: fixed;
+  z-index: 1010;
+  width: 500px;
+  background: #ffffff;
+  overflow: scroll;
+  text-align: center;
+  display: none;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 45%;
+  margin: 0 auto;
+
+}
+
+@media(max-width: 1000px){
+  #more-post-option{
+    width: 90%;
+    margin-left: 0px;
+  }
+}
+
+
+
+#more-post-option p{
+  margin-top: 10px;
+  padding: 20px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+#more-post-option p:hover{
+  color:red;
+}
+
+

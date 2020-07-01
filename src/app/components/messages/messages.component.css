@@ -1,0 +1,203 @@
+#middle{
+  display: inline-block;
+  margin-left: 25%;
+  width: 30%;
+
+}
+
+#middle .page-title{
+  width: 30%;
+}
+
+#people{
+  width: 100%;
+  margin-top: 50px;
+}
+
+/* @media(max-width:1000px){
+  #middle{
+    width: 100%;
+    margin-left: 0px;
+  }
+  #people{
+    margin-top: 76px;
+  }
+
+} */
+
+#people .user{
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #ebebeb;
+}
+#people .user:hover{
+  background:#ebebeb;
+}
+
+#people .user .container{
+  padding: 10px;
+}
+
+#people .profile-image, .username{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.username b, small{
+  margin-left: 5px;
+}
+#people img{
+    width: 50px;
+}
+
+
+
+
+#right{
+  display: inline-block;
+  position: fixed;
+  border-left: 1px solid #ebebeb;
+  height: 100vh;
+  width: 45%;
+  overflow: scroll;
+}
+
+#right .page-title{
+  width: 45%;
+}
+
+
+
+/* message styling */
+.message-received .content{
+  background: #ebebeb;
+}
+
+.message-received{
+  margin-top: 30px;
+  position: relative;
+}
+
+.message-received img{
+  width: 30px;
+  position: absolute;
+  bottom: 0;
+
+}
+.message-received .content {
+  display: inline-block;
+  width: 50%;
+  margin-left: 35px;
+  background: #ebebeb;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+
+
+.message-sent{
+ position: relative;
+ margin-left:40%;
+ margin-right: 20px;
+ margin-top: 30px;
+
+}
+
+.message-sent .content{
+  display: inline-block;
+  margin-left: 35px;
+  background: red;
+  padding: 20px;
+  border-radius: 30px;
+  color:#ffffff;
+}
+
+.bottom-space{
+  margin-bottom: 70px;
+}
+
+.top-space{
+  margin-top: 100px;
+}
+
+/* for the form to send message*/
+
+#send-message-div{
+  position: fixed;
+  bottom: 0;
+  left: 55%;
+  width: 45%;
+  z-index: 30;
+  background: #ffffff;
+  border-top: 1px solid #ebebeb;
+  border-left: 1px solid #ebebeb;
+
+}
+
+
+#send-message-div .container{
+  width: 96%;
+  padding : 2%;
+  margin: 0 auto;
+}
+#send-message-div .container > div{
+  display: inline-block;
+  margin-left: 10px;
+}
+
+#message-field{
+  width: 70%;
+}
+
+
+div[contenteditable]{
+  width: 90%;
+  border: 1px solid #ff0000;
+  max-height: 75px;
+  overflow: auto;
+  background: #ebebeb;
+  border-radius: 10px;
+}
+[contenteditable=true]:empty:before {
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+}
+
+@media(max-width:1000px){
+  #right{
+    width: 100%;
+    margin: 0px;
+  }
+
+  #middle{
+    display: none;
+  }
+  #send-message-div{
+   left: 0;
+   width: 100%;
+
+
+  }
+
+}
+
+
+#working-on-it{
+  position: fixed;
+  background-color: #ffffff;
+  top: 50px;
+  left: 30%;
+  width: 500px;
+  z-index: 1000;
+  padding: 20px;
+}
+
+@media(max-width:1000px){
+  #working-on-it{
+    top: 70px;
+    left: 5%;
+    right: 5%;
+    width: 80%;
+  }
+
+}
