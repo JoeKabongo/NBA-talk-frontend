@@ -223,5 +223,4 @@ export class BlogArticleComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
 
-
 }

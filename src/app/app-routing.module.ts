@@ -39,7 +39,6 @@ const routes: Routes = [
 
   {path: 'stats', component: CurrentStatsComponent},
   {path: 'notifications', component: NotificationsComponent},
-
   {path: 'jointeam', component: JoinTeamComponent},
 
 ];

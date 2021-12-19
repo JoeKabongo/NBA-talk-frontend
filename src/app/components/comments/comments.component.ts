@@ -101,8 +101,6 @@ export class CommentsComponent implements OnInit, OnDestroy {
     });
 
 
-
-
     // receive a created comment and add it to our list of comment
     this.newCommentSubcription = this.commentService.savedCommentEmitter.subscribe(response => {
         this.comments.unshift(response);

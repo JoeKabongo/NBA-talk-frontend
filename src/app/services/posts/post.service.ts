@@ -192,13 +192,10 @@ export class PostService {
     this.editedPost.next(post);
   }
 
-
-
   // show the edit post window
   showEditWindow(post: Post) {
     this.showEditPostWindown.next(post);
   }
-
 
   emitErrorMessage(error: string) {
     this.errorEmittor.next(error);
