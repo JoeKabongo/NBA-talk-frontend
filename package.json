@@ -29,7 +29,7 @@
     "@types/jwt-decode": "^2.2.1",
     "ckeditor-cloudinary-uploader-adapter": "^1.1.3",
     "core-js": "^2.5.4",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jwt-decode": "^2.2.0",
     "moment": "^2.24.0",
     "rxjs": "~6.3.3",
